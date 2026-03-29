@@ -18,9 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import post_list
+from blog.views import author_post_list, post_detail, post_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', post_list, name='post_list'),
+    path('posts/<int:pk>/', post_detail, name='post_detail'),
+    path('authors/<int:author_pk>/posts/', author_post_list, name='author_post_list'),
 ]
